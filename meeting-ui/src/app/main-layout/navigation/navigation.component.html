@@ -1,0 +1,85 @@
+<!--Main Navigation-->
+<header>
+
+    <!-- Sidebar -->
+    <div class="sidebar-fixed  position-fixed">
+
+        <a class="logo-wrapper waves-effect">
+            <img src="../../../assets/img/logo/logo.jpg" class="img-fluid" alt=""> Meet
+        </a>
+
+        <div class="list-group list-group-flush">
+
+            <a routerLink="dashboard" routerLinkActive="active"
+                class="list-group-item list-group-item-action waves-light">
+                <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon>Dashboard
+            </a>
+            <a routerLink="reserv" routerLinkActive="active" mdbWavesEffect
+                class="list-group-item list-group-item-action waves-light">
+                <mdb-icon fab icon="meetup" class="mr-3"></mdb-icon>Bookings
+            </a>
+            <a routerLink="book" routerLinkActive="active" mdbWavesEffect
+                class="list-group-item list-group-item-action waves-effect">
+                <mdb-icon fas icon="user" class="mr-3"></mdb-icon>Profile
+            </a>
+            <a routerLink="tables" routerLinkActive="active" mdbWavesEffect
+                class="list-group-item list-group-item-action waves-light">
+                <mdb-icon fas icon="table" class="mr-3"></mdb-icon>Tables
+            </a>
+            <a routerLink="maps" routerLinkActive="active" mdbWavesEffect
+                class="list-group-item list-group-item-action waves-effect">
+                <mdb-icon far icon="map" class="mr-3"></mdb-icon>Maps
+            </a>
+            <a routerLink="nonExistingPath" routerLinkActive="active" mdbWavesEffect
+                class="list-group-item list-group-item-action waves-light">
+                <mdb-icon fas icon="exclamation" class="mr-3"></mdb-icon>404
+            </a>
+
+        </div>
+
+    </div>
+    <!-- Sidebar -->
+
+    <!--Navbar-->
+    <mdb-navbar [containerInside]="false" SideClass="navbar navbar-expand-lg navbar-light white">
+
+        <!-- Navbar brand -->
+        <logo class="ml-3">
+            <a class="navbar-brand" href="#">
+                <strong class="blue-text">Booking System</strong>
+            </a>
+        </logo>
+
+        <!-- Collapsible content -->
+        <links>
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a routerLink="dashboard" class="nav-link" mdbWavesEffect>Home
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a routerLink="reserv" routerLinkActive="active" class="nav-link" mdbWavesEffect>Booking</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a routerLink="book" routerLinkActive="active" class="nav-link" mdbWavesEffect>Profile</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" mdbWavesEffect>About</a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" href="https://mdbootstrap.com/angular/angular-tutorial/" target="_blank"
+                        mdbWavesEffect>Free tutorials</a>
+                </li>
+            </ul>
+
+        </links>
+        <!-- Collapsible content -->
+
+    </mdb-navbar>
+    <!--/.Navbar-->
+
+</header>
+<!--Main Navigation-->

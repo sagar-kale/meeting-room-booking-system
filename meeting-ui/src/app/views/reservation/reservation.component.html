@@ -1,0 +1,260 @@
+<!-- Toaster -->
+
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+
+<!-- Toaster -->
+
+<!--Grid Row-->
+<div class="row wow fadeIn">
+
+    <!--Grid column-->
+    <div class="col-lg-6 col-md-6 mb-4">
+
+        <!--Card-->
+        <mdb-card>
+
+            <!-- Card header -->
+            <div class="card-header">Check Availability</div>
+
+            <!--Card content-->
+            <mdb-card-body>
+
+                <div style="display: block">
+
+                    <!-- Default form register -->
+                    <form class="text-center border border-light p-5" [formGroup]="meetingGroup">
+
+                        <p class="h4 mb-4">Check Rooms Availability</p>
+
+                        <small class="form-text text-muted mb-4">
+                            Date Format : YYYY-MM-DD & Time Format : HH:MM:SS -24 Hours
+                        </small>
+
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input type="text" id="form1" class="form-control" placeholder="From Date : yyyy-mm-dd"
+                                    formControlName="dateFrom" ngbDatepicker #df="ngbDatepicker" (click)="df.toggle()">
+                            </div>
+                            <div class="col">
+                                <ngb-timepicker formControlName="timeFrom"></ngb-timepicker>
+                            </div>
+                        </div>
+
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input type="text" id="form1" class="form-control" placeholder="To Date - yyyy-mm-dd"
+                                    formControlName="dateTo" ngbDatepicker #dt="ngbDatepicker" (click)="dt.toggle()">
+
+                            </div>
+                            <div class="col">
+                                <ngb-timepicker formControlName="timeTo"></ngb-timepicker>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button mdbWavesEffect mdbBtn color="cyan" class="mt-1 waves-light" (click)="onSubmit()"
+                                [disabled]="meetingGroup.invalid">{{ checkBtnText }}
+                                <mdb-icon fas icon="calendar-check" class="ml-1"></mdb-icon>
+                            </button>
+                        </div>
+
+                        <!-- E-mail 
+                        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4"
+                            placeholder="E-mail">
+
+                        
+                        <input type="password" id="defaultRegisterFormPassword" class="form-control"
+                            placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                            At least 8 characters and 1 digit
+                        </small>
+
+                        
+                        <input type="text" id="defaultRegisterPhonePassword" class="form-control"
+                            placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                            Optional - for two-step authentication
+                        </small>
+
+                        
+                        <div class="row">
+                            <div class="col-md-6 mx-auto d-flex justify-content-center">
+                                <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
+                            </div>
+                        </div>
+
+                        
+                        <button mdbBtn color="info" block="true" class="my-4" (click)="onSubmit()">Sign in</button>
+
+                        
+                        <p>or sign up with:</p>
+
+                        <a type="button" class="light-blue-text mx-2">
+                            <mdb-icon fab icon="facebook"></mdb-icon>
+                        </a>
+                        <a type="button" class="light-blue-text mx-2">
+                            <mdb-icon fab icon="twitter"></mdb-icon>
+                        </a>
+                        <a type="button" class="light-blue-text mx-2">
+                            <mdb-icon fab icon="linkedin"></mdb-icon>
+                        </a>
+                        <a type="button" class="light-blue-text mx-2">
+                            <mdb-icon fab icon="github"></mdb-icon>
+                        </a>
+
+                        <hr>
+
+                        
+                        <p>By clicking
+                            <em>Sign up</em> you agree to our
+                            <a href="" target="_blank">terms of service</a></p> -->
+
+                    </form>
+                    <!-- Default form register -->
+
+                </div>
+            </mdb-card-body>
+
+        </mdb-card>
+        <!--/.Card-->
+
+    </div>
+
+    <!--Grid column-->
+
+    <div class="col-lg-6 col-md-6 mb-4">
+
+        <!--Card-->
+        <mdb-card>
+
+            <!-- Card header -->
+            <div class="card-header">Available Rooms</div>
+
+            <!--Card content-->
+            <mdb-card-body>
+
+                <!-- Table -->
+                <div class="table-responsive">
+
+                    <table class="table table-hover">
+                        <!-- Table head -->
+                        <thead class="blue lighten-4">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Capacity</th>
+                                <th>Location</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <!-- Table head -->
+
+                        <!-- Table body -->
+                        <tbody>
+                            <tr *ngFor="let room of meetingRooms; let i = index;">
+                                <th scope="row"> {{ i + 1 }} </th>
+                                <td> {{ room.name }} </td>
+                                <td> {{ room.capacity }} </td>
+                                <td> {{ room.location }} </td>
+                                <td> <button mdbWavesEffect mdbBtn color="cyan" class="mt-1 relative waves-light"
+                                        (click)="showModal(room.id)">Book
+                                    </button></td>
+                            </tr>
+                        </tbody>
+                        <!-- Table body -->
+                    </table>
+
+                </div>
+                <!-- Table  -->
+            </mdb-card-body>
+
+        </mdb-card>
+        <!--/.Card-->
+
+        <!-- Meeting Book Form Model -->
+
+        <div mdbModal #centralLarge="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: true, ignoreBackdropClick: false}">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title w-100" id="myModalLabel">Book Meeting Room</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            (click)="centralLarge.hide()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Default form register -->
+                        <form class="text-center border border-light p-5" [formGroup]="reservationForm">
+
+                            <p class="h4 mb-4">Booking {{currentBookingRoomName}} </p>
+
+                            <small class="form-text text-muted mb-4">
+                                Date Format : YYYY-MM-DD & Time Format : HH:MM:SS -24 Hours
+                            </small>
+
+                            <input type="text" id="dtidhelpblock" class="form-control" formControlName="employeeId"
+                                placeholder="EMP ID" aria-describedby="dtidhelpblock">
+                            <small id="dtidhelpblock" class="form-text text-muted mb-4">
+                                Please provide DT ID or EMP ID
+                            </small>
+
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <input type="text" id="form1" class="form-control"
+                                        placeholder="From Date : yyyy-mm-dd" formControlName="dateFrom" ngbDatepicker
+                                        #dfr="ngbDatepicker" (click)="dfr.toggle()">
+                                </div>
+                                <div class="col">
+                                    <ngb-timepicker formControlName="timeFrom"></ngb-timepicker>
+                                </div>
+                            </div>
+
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <input type="text" id="form1" class="form-control"
+                                        placeholder="To Date - yyyy-mm-dd" formControlName="dateTo" ngbDatepicker
+                                        #dtr="ngbDatepicker" (click)="dtr.toggle()">
+
+                                </div>
+                                <div class="col">
+                                    <ngb-timepicker formControlName="timeTo"></ngb-timepicker>
+                                </div>
+                            </div>
+
+                            <input type="text" id="purposeToolTip" class="form-control" formControlName="purpose"
+                                placeholder="Purpose" aria-describedby="purposeToolTip">
+                            <small id="purposeToolTip" class="form-text text-muted mb-4">
+                                Provide Purpose
+                            </small>
+
+                            <div class="text-center">
+                                <button mdbWavesEffect mdbBtn color="cyan" class="mt-1 waves-light"
+                                    (click)="bookMeetingRoom()" [disabled]="reservationForm.invalid">{{ bookBtnText }}
+                                    {{currentBookingRoomName}}
+                                    <mdb-icon fas icon="hand-point-left" class="ml-1"></mdb-icon>
+                                </button>
+                            </div>
+                        </form>
+                        <!-- Default form register -->
+
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" mdbBtn color="secondary" size="sm" class="waves-light"
+                            data-dismiss="modal" (click)="centralLarge.hide()" mdbWavesEffect>Close
+                        </button>
+                        <button type="button" mdbBtn color="primary" size="sm" class="waves-light" mdbWavesEffect>Save
+                            changes
+                        </button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Meeting Book Form Model End -->
+
+    </div>
+
+</div>

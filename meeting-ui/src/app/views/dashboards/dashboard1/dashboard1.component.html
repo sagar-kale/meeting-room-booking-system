@@ -1,0 +1,87 @@
+<!-- Toaster servive-->
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+
+<!-- Heading -->
+<mdb-card class="mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <mdb-card-body class="d-sm-flex justify-content-between">
+
+        <h4 class="mb-sm-0 pt-3">
+            <a href="/" target="_blank">Home</a>
+            <span>/</span>
+            <span>Dashboard</span>
+        </h4>
+
+        <form class="d-flex md-form justify-content-center my-0">
+            <!-- Default input -->
+            <input type="search" placeholder="Type your query" aria-label="Search" class="form-control" mdbInput>
+            <button mdbBtn color="primary" size="sm" class="my-0 p" type="submit">
+                <mdb-icon fas icon="search"></mdb-icon>
+            </button>
+
+        </form>
+
+    </mdb-card-body>
+
+</mdb-card>
+<!-- Heading -->
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        <!--Card-->
+        <mdb-card cascade="true" narrower="true" class="mt-1">
+            <!--Card image-->
+            <div class="view gradient-card-header blue darken-2">
+                <h4 class="h4-responsive text-white" aria-describedby="tip">Booking Information </h4>
+                <small id="tip" class="mb-4 text-white">
+                    Latest booking will appear first
+                </small>
+            </div>
+            <!--/Card image-->
+            <!--Card content-->
+            <mdb-card-body>
+
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table mdbTable small="true" hover="true">
+                        <!-- Table head -->
+                        <thead class="blue lighten-4">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Capacity</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Purpose</th>
+                                <th>Booked By</th>
+                            </tr>
+                        </thead>
+                        <!-- Table head -->
+
+                        <!-- Table body -->
+                        <tbody>
+                            <tr mdbTableCol  *ngFor="let room of reservations; let i = index;">
+                                <th scope="row"> {{ i + 1 }} </th>
+                                <td> {{ room.name }} </td>
+                                <td> {{ room.capacity }} </td>
+                                <td> {{ room.dateBegin | customDateFormatter | date:'MMM d, y, h:mm a':'IST' }} </td>
+                                <td> {{ room.dateEnd  | customDateFormatter | date:'MMM d, y, h:mm a':'IST' }} </td>
+                                <td> {{ room.purpose }} </td>
+                                <td> {{ room.employeeId }} </td>
+                            </tr>
+                        </tbody>
+                        <!-- Table body -->
+                    </table>
+                </div>
+                <!-- Table  -->
+
+            </mdb-card-body>
+            <!--/.Card content-->
+        </mdb-card>
+        <!--/.Card-->
+    </div>
+</div>
+
+
+<!--Grid row-->
