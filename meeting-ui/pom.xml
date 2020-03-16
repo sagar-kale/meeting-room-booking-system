@@ -33,16 +33,16 @@
                         </goals>
                         <phase>generate-resources</phase>
                     </execution>
-               <!--     <execution>
+                    <execution>
                         <id>npm install</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <arguments>ci</arguments>
+                            <arguments>install</arguments>
                         </configuration>
-                    </execution>-->
+                    </execution>
                     <execution>
                         <id>npm run-script build-prod</id>
                         <phase>prepare-package</phase>
