@@ -14,8 +14,8 @@ public interface MeetingRoomService {
 	
 	public void createMeetingRoom(MeetingRoom meetingroom);
     public List<MeetingRoom> getMeetingRoom();
-    public MeetingRoom findById(int id);
-    public MeetingRoom update(MeetingRoom meetingroom, int id);
-    public Boolean deleteMeetingRoomById(int id);
+    public MeetingRoom findById(Integer id);
+    public MeetingRoom update(MeetingRoom meetingroom, Integer id);
+    public Boolean deleteMeetingRoomById(Integer id);
     public List<MeetingRoom> findMeetingRoomAvailable(Date db, Date de);
 }

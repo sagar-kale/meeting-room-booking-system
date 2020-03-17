@@ -44,7 +44,7 @@ public class MeetingRoomServiceImp implements MeetingRoomService{
 	}
 
 	@Override
-	public MeetingRoom findById(int id) {
+	public MeetingRoom findById(Integer id) {
 		 Optional<MeetingRoom> optMeetingRoom = meetingRoomRepository.findById(id); // returns java8 optional
 		    if (optMeetingRoom.isPresent()) {
 		        return optMeetingRoom.get();
@@ -54,7 +54,7 @@ public class MeetingRoomServiceImp implements MeetingRoomService{
 	}
 
 	@Override
-	public MeetingRoom update(MeetingRoom meetingroom, int id) {
+	public MeetingRoom update(MeetingRoom meetingroom, Integer id) {
 		Optional<MeetingRoom> optMeetingRoom = meetingRoomRepository.findById(id); // returns java8 optional
 	    if (optMeetingRoom.isPresent()) {
 	    	MeetingRoom newRoom = optMeetingRoom.get();
@@ -70,7 +70,7 @@ public class MeetingRoomServiceImp implements MeetingRoomService{
 	}
 
 	@Override
-	public Boolean deleteMeetingRoomById(int id) {
+	public Boolean deleteMeetingRoomById(Integer id) {
 		Optional<MeetingRoom> optMeetingRoom = meetingRoomRepository.findById(id); // returns java8 optional
 	    if (optMeetingRoom.isPresent()) {
 	    	meetingRoomRepository.delete(optMeetingRoom.get());

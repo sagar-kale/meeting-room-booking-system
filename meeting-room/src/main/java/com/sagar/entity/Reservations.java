@@ -10,10 +10,10 @@ public class Reservations extends AuditEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reservation_id")
-    private int reservationId;
+    private Integer reservationId;
 
     @Column(name = "room_id")
-    private int roomId;
+    private Integer roomId;
 
     @Column(name = "purpose")
     private String purpose;
@@ -39,7 +39,7 @@ public class Reservations extends AuditEntity {
         // TODO Auto-generated constructor stub
     }
 
-    public Reservations(int id, int roomId, String purpose, Date dateBegin, Date dateEnd) {
+    public Reservations(Integer id, Integer roomId, String purpose, Date dateBegin, Date dateEnd) {
         super();
         this.reservationId = id;
         this.roomId = roomId;
@@ -48,7 +48,7 @@ public class Reservations extends AuditEntity {
         this.dateEnd = dateEnd;
     }
 
-    public Reservations(int roomId, String purpose, Date dateBegin, Date dateEnd) {
+    public Reservations(Integer roomId, String purpose, Date dateBegin, Date dateEnd) {
         super();
         this.roomId = roomId;
         this.purpose = purpose;
@@ -72,19 +72,19 @@ public class Reservations extends AuditEntity {
         this.capacity = capacity;
     }
 
-    public int getReservationId() {
+    public Integer getReservationId() {
         return reservationId;
     }
 
-    public void setReservationId(int id) {
+    public void setReservationId(Integer id) {
         this.reservationId = id;
     }
 
-    public int getRoomId() {
+    public Integer getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(int roomId) {
+    public void setRoomId(Integer roomId) {
         this.roomId = roomId;
     }
 

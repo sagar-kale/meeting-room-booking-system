@@ -13,13 +13,13 @@ public class MeetingRoom extends AuditEntity{
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@Column(name="name")
 	private String name;
 	
 	@Column(name="capacity")
-	private int capacity;
+	private Integer capacity;
 	
 	@Column(name="location")
 	private String location;
@@ -29,7 +29,7 @@ public class MeetingRoom extends AuditEntity{
 		// TODO Auto-generated constructor stub
 	}
 
-	public MeetingRoom(int id, String name, int capacity, String location) {
+	public MeetingRoom(Integer id, String name, Integer capacity, String location) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -37,18 +37,18 @@ public class MeetingRoom extends AuditEntity{
 		this.location = location;
 	}
 
-	public MeetingRoom( String name, int capacity, String location) {
+	public MeetingRoom( String name, Integer capacity, String location) {
 		super();
 		this.name = name;
 		this.capacity = capacity;
 		this.location = location;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -60,11 +60,11 @@ public class MeetingRoom extends AuditEntity{
 		this.name = name;
 	}
 
-	public int getCapacity() {
+	public Integer getCapacity() {
 		return capacity;
 	}
 
-	public void setCapacity(int capacity) {
+	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
 

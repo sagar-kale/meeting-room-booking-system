@@ -57,7 +57,7 @@ public class ReservationsServiceImp implements ReservationService {
     }
 
     @Override
-    public Reservations findById(int id) {
+    public Reservations findById(Integer id) {
         Optional<Reservations> optReservation = reservationsRepository.findById(id); // returns java8 optional
         if (optReservation.isPresent()) {
             return optReservation.get();
@@ -67,7 +67,7 @@ public class ReservationsServiceImp implements ReservationService {
     }
 
     @Override
-    public Boolean deleteReservationsById(int id) {
+    public Boolean deleteReservationsById(Integer id) {
         Optional<Reservations> optReservation = reservationsRepository.findById(id); // returns java8 optional
         if (optReservation.isPresent()) {
             reservationsRepository.delete(optReservation.get());

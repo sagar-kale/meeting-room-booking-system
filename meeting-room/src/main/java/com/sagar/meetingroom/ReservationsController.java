@@ -55,7 +55,7 @@ public class ReservationsController {
 
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Reservations> getUserById(@PathVariable("id") int id) {
+    public ResponseEntity<Reservations> getUserById(@PathVariable("id") Integer id) {
         System.out.println("Fetching Reservation with id " + id);
         Reservations reservation = reservationServiceImp.findById(id);
         if (reservation == null) {
@@ -65,7 +65,7 @@ public class ReservationsController {
     }
 
     @DeleteMapping(value = "/{id}", headers = "Accept=application/json")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") int id) {
+    public ResponseEntity<String> deleteUser(@PathVariable("id") Integer id) {
         Reservations reservation = reservationServiceImp.findById(id);
         if (reservation == null) {
             return new ResponseEntity<String>("No such Reservation", HttpStatus.NOT_FOUND);

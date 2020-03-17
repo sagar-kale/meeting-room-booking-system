@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Test {
 	
-	private int id;
+	private Integer id;
 	private String test;
 	private Date d;
 
-	public Test(int id, String test, Date d) {
+	public Test(Integer id, String test, Date d) {
 		super();
 		this.id = id;
 		this.test = test;
@@ -20,11 +20,11 @@ public class Test {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

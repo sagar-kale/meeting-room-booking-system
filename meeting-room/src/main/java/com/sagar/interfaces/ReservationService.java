@@ -13,9 +13,9 @@ public interface ReservationService {
 
     List<Reservations> getReservations();
 
-    Reservations findById(int id);
+    Reservations findById(Integer id);
 
-    Boolean deleteReservationsById(int id);
+    Boolean deleteReservationsById(Integer id);
 
     List<Reservations> findByName(String name);
 

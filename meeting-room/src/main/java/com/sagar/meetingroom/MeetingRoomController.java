@@ -25,7 +25,7 @@ public class MeetingRoomController {
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<MeetingRoom> getUserById(@PathVariable("id") int id) {
+    public ResponseEntity<MeetingRoom> getUserById(@PathVariable("id") Integer id) {
         System.out.println("Fetching Meeting Room with id " + id);
         MeetingRoom meetingroom = meetingRoomServiceImp.findById(id);
         if (meetingroom == null) {
@@ -42,7 +42,7 @@ public class MeetingRoomController {
     }
 
     @DeleteMapping(value = "/{id}", headers = "Accept=application/json")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") int id) {
+    public ResponseEntity<String> deleteUser(@PathVariable("id") Integer id) {
         MeetingRoom room = meetingRoomServiceImp.findById(id);
         if (room == null) {
             return new ResponseEntity<>("No such meeting room", HttpStatus.NOT_FOUND);
